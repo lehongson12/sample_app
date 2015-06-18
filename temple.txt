@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+  bcrypt (~> 3.1.7)
+=======
+  bootstrap-sass (= 3.2.0.0)
+>>>>>>> 4caf96dc126a498e4bdee666cde2d06ae55835ac
