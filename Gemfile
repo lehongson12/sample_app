@@ -9,7 +9,11 @@ gem 'sqlite3'
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'faker',    '1.4.2'
-
+#gem upload image
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
+##
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 # Use Uglifier as compressor for JavaScript assets
