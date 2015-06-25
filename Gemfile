@@ -13,6 +13,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 ##
+gem 'pg'
+gem 'rails_12factor'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 # Use Uglifier as compressor for JavaScript assets
