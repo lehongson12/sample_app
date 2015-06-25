@@ -1,0 +1,47 @@
+<div class="row">
+
+  <aside class="col-md-4">
+    <% if logged_in? %> 
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="stats">
+        <%= render 'shared/stats' %>
+      </section>
+    <% else %>
+      <h3> 
+      Hello Guests
+      </h3>
+    <% end %>
+  </aside>
+  
+  <div class="col-md-8">
+    <h3>
+      New Feed
+    </h3>
+    <% will_paginate @microposts %>
+    <%= @microposts.each do |micropost| %>
+    <div class="microposts page-header">
+      <%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
+      <span class="title">
+        <%= link_to micropost.title, micropost %>
+      </span>
+      <span class="content">
+        <%= micropost.content.lines.first %>
+        <%= image_tag micropost.picture.url if micropost.picture? %>
+      </span>
+      <span class="timestamp">
+        Posted <%= time_ago_in_words(micropost.created_at) %> ago.  | by: 
+        <%= link_to micropost.user.name, micropost.user %>
+        <% if current_user?(micropost.user) %>
+          <%= link_to " | delete", micropost, method: :delete,
+                                           data: { confirm: "You sure?" } %>
+        <% end %>
+      </span>
+      <div class="clear" style="clear:both"> </div>
+          </div>
+      <% end -%>
+      <% will_paginate @microposts %>
+  </div>
+</div>
+<div class="clear" style="clear: both"> </div>

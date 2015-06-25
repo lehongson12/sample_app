@@ -1,0 +1,42 @@
+
+<div class="users">
+	<%= gravatar_for @micropost.user, size: 50 %>
+	<%= link_to @micropost.user.try(:name), @micropost.user  %>
+
+	<div class="user-info" style="float: rigth">
+		<span> Participants day : <%= @micropost.user.created_at %> </span>
+	</div>
+</div>
+<h2 style="font-size: 30px">
+	<%= @micropost.title  %>
+</h2>
+<div class="content">
+	<h3>
+		<%=raw @micropost.content %>
+	</h3>		
+	<%= image_tag @micropost.picture.url if @micropost.picture? %>
+</div>
+
+<div class="meta">
+	<%= @micropost.created_at %>
+</div>
+
+<% if current_user?(@micropost.user) %>
+<div>
+	<%= link_to 'Edit Post', edit_micropost_path(@micropost) %> | 
+	<%= link_to 'Destroy Post', @micropost, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
+<% end %>
+
+<div class="comment">
+	<%= render 'comments/comment_form' %>
+
+	<% @micropost.comments.each do |comment| %> 
+		<div class="well">
+			<p> <%=raw comment.body %> </p>
+			<div class = "pull-rigth"> Create on <%= comment.created_at %> | 
+					Create by <%= link_to comment.user.try(:name), comment.user %>
+			</div>
+		</div>
+		<% end -%>					
+</div>

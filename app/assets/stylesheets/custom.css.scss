@@ -11,6 +11,9 @@ $gray-medium-light: #eaeaea;
   box-sizing:         border-box;
 }
 
+a:hover{
+  text-decoration: none;
+}
 
 /* universal */
 
@@ -256,9 +259,10 @@ input {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
-  .user {
+  .title {
     margin-top: 5em;
     padding-top: 0;
+    font-size: 20px;
   }
   .content {
     display: block;
@@ -292,4 +296,14 @@ span.picture {
   input {
     border: 0;
   }
+}
+
+.meta {font-size: 11px; color: #666; float: right; margin: auto;}
+h4 {
+  //font-size: 1.1em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $gray-light;
 }
